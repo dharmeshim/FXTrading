@@ -57,7 +57,6 @@ public class BookTrade {
             System.out.println("Invalid currency pair.(For now) Only USDINR is supported.");
             takeCurrencyPair();
         }
-
     }
 
     //to get transaction amount
@@ -107,7 +106,7 @@ public class BookTrade {
 
         if (choice.matches("[1-2]+")){
             if (Integer.parseInt(choice) ==1) {
-                System.out.println("Trade for " + currencyPair + " has been booked with rate " + usdInrRate + ", The amount of Rs " + formatAmount(amount) + " will be transferred in 2 working days to " + customerName + ".\n");
+                System.out.println("\nTrade for " + currencyPair + " has been booked with rate " + usdInrRate + ", The amount of Rs " + formatAmount(amount) + " will be transferred in 2 working days to " + customerName + ".\n");
                 return true;
             }
             else if (Integer.parseInt(choice) ==2) {

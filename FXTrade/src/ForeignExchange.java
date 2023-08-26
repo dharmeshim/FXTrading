@@ -8,6 +8,7 @@ public class ForeignExchange {
 
     public static void main(String[] args) {
 
+        System.out.println("Welcome to FX Trading !");
         //to execute main menu
         while (true) {
             System.out.println("\n1. Book Trade"); //to trade
