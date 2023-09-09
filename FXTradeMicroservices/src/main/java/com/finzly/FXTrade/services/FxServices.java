@@ -9,11 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class FxServices {
+public final class FxServices {
 
 	private List<Trade> tradeList = new ArrayList<Trade>();
 	private double usdToInrRate = 66;
 	private long tradeNumber = 100;
+
+	private FxServices() {
+
+	}
 
 	public ResponseEntity<Object> getTrades() {
 
@@ -27,12 +31,9 @@ public class FxServices {
 
 	public String addNewTrade(Trade trade) {
 
-		if (!checkValidName(trade.getCustmerName())) {
-			return "Name invalid!, Please give valid name";
-		} else if (!checkValidCurrencyPair(trade.getCurrencyPair())) {
-			return "Currency pair invalid!, Only USDINR is supported";
-		} else if (!checkValidAmount(trade.getAmount())) {
-			return "Amount invalid!, Please enter valid amount";
+		String validSatus = checkValid(trade);
+		if (!validSatus.equals("valid")) {
+			return validSatus;
 		} else {
 
 			trade.setTradeNo(tradeNumber++);
@@ -43,6 +44,36 @@ public class FxServices {
 			return "Trade for " + trade.getCurrencyPair() + " has been booked with rate " + trade.getRate()
 					+ ", The amount of Rs " + trade.getAmount() + " will be transferred in 2 working days to "
 					+ trade.getCustmerName() + ".";
+		}
+
+	}
+
+	public String getRate(Trade trade) {
+
+		String validSatus = checkValid(trade);
+		if (!validSatus.equals("valid")) {
+			return validSatus;
+		}
+
+		else {
+			trade.setRate(usdToInrRate);
+			trade.setAmount(trade.getAmount() * usdToInrRate);
+
+			return "You are transferring INR " + trade.getAmount() + " to " + trade.getCustmerName() + ".(Rate is "
+					+ trade.getRate() + ")";
+		}
+
+	}
+
+	private String checkValid(Trade trade) {
+		if (!checkValidName(trade.getCustmerName())) {
+			return "Name invalid!, Please give valid name";
+		} else if (!checkValidCurrencyPair(trade.getCurrencyPair())) {
+			return "Currency pair invalid!, Only USDINR is supported";
+		} else if (!checkValidAmount(trade.getAmount())) {
+			return "Amount invalid!, Please enter valid amount";
+		} else {
+			return "valid";
 		}
 
 	}

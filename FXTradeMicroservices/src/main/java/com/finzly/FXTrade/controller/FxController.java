@@ -32,5 +32,10 @@ public class FxController {
 	public String bookTrade(@RequestBody Trade trade) {
 		return fxServices.addNewTrade(trade);
 	}
+	
+	@PostMapping("/rate")
+	public String getRate(@RequestBody Trade trade) {
+		return fxServices.getRate(trade);
+	}
 
 }
