@@ -21,7 +21,7 @@ public class ValidateUtility {
 	}
 	
 	private boolean checkValidName(String name) {
-		if ((!name.matches("^[a-zA-Z ]+$")) || name.trim() == null) {
+		if (name == null ||(!name.matches("^[a-zA-Z ]+$")) || name.trim() == null) {
 			return false;
 		} else {
 			return true;
@@ -29,7 +29,7 @@ public class ValidateUtility {
 	}
 
 	private boolean checkValidCurrencyPair(String currencyPair) {
-		if (!currencyPair.equalsIgnoreCase("USDINR")) {
+		if (currencyPair == null ||(!currencyPair.equalsIgnoreCase("USDINR"))) {
 			return false;
 		} else {
 			return true;
