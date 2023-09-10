@@ -29,8 +29,6 @@ public class FxController {
 
 	@PostMapping("/book")
 	public String bookTrade(@RequestBody TradeBean trade) {
-		
-		System.out.println(trade+"rdftgbhnjmcfvgbhnjeeeeeeeeeeeeeeeeeeeeeeeee");
 		return fxServices.addNewTrade(trade);
 	}
 	
