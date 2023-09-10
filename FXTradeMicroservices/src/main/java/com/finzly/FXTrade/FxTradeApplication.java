@@ -9,5 +9,4 @@ public class FxTradeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FxTradeApplication.class, args);
 	}
-
 }
