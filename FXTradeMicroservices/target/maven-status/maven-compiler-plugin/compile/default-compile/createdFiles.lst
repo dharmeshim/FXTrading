@@ -1,0 +1,6 @@
+com\finzly\FXTrade\utility\ValidateUtility.class
+com\finzly\FXTrade\FxTradeApplication.class
+com\finzly\FXTrade\beans\TradeBean.class
+com\finzly\FXTrade\controller\FxController.class
+com\finzly\FXTrade\services\impl\FxTradeServiceImpl.class
+com\finzly\FXTrade\services\FxTradeService.class
